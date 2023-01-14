@@ -19,12 +19,51 @@
 	      (#{no}, #{title}, #{userId}, #{content})
    </insert>	
    
+   <!-- 
+   		void insertAttachedFile(AttachedFile attachedFile);
+    -->
    <insert id="insertAttachedFile" parameterType="AttachedFile">
    		insert into spring_post_attached_files
    		(post_no, file_name)
    		values
-   		(#{postNo}, {#fileName})
+   		(#{postNo}, #{filename})
    </insert> 
+   
+   <!-- 
+   		void insertTag(Tag tag);
+    -->
+   <insert id="insertTag" parameterType="Tag">
+   		insert into spring_post_tags
+   		(post_no, tag_content)
+   		values
+   		(#{postNo}, #{content})   		
+   </insert>
+   
+   <!-- 
+   		List<AttachedFile> getAttachedFilesByPostNo(int postNo);
+    -->
+    <select id="getAttachedFilesByPostNo" parameterType="int" resultType="AttachedFile">
+    	select
+    		post_no		as postNo,
+    		file_name	as filename
+    	from
+    		spring_post_attached_files
+    	where
+    		post_no = #{value}
+    </select>
+    
+    <!-- 
+    	List<Tag> getTagsByPostNo(int postNo);	
+     -->
+     <select id="getTagsByPostNo" parameterType="int" resultType="Tag">
+     	select
+     		post_no		as postNo,
+     		tag_content	as content
+     	from
+     		spring_post_tags
+     	where
+     		post_no = #{value}
+     </select>
 	 
 	<!-- 
 		void updatePost(Post post);

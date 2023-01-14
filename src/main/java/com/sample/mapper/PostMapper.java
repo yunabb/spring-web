@@ -9,6 +9,7 @@ import com.sample.dto.PostDetailDto;
 import com.sample.dto.PostListDto;
 import com.sample.vo.AttachedFile;
 import com.sample.vo.Post;
+import com.sample.vo.Tag;
 
 @Mapper
 public interface PostMapper {
@@ -24,5 +25,9 @@ public interface PostMapper {
 	PostDetailDto getPostDetailByNo(int postNo);
 	
 	void insertAttachedFile(AttachedFile attachedFile);
-
+	void insertTag(Tag tag);
+	
+	List<AttachedFile> getAttachedFilesByPostNo(int postNo);
+	List<Tag> getTagsByPostNo(int postNo);	// 여러개 가져올 수 있어서 반환값이 list
+	
 }

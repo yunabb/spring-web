@@ -19,7 +19,8 @@ public class AttachedFile {
 	public void setFilename(String filename) {
 		this.filename = filename;
 	}
-	
+
+
 	
 
 }

@@ -90,5 +90,14 @@ public class Post {
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
+
+	@Override
+	public String toString() {
+		return "Post [no=" + no + ", title=" + title + ", userId=" + userId + ", content=" + content + ", deleted="
+				+ deleted + ", readCount=" + readCount + ", commentCount=" + commentCount + ", updatedDate="
+				+ updatedDate + ", createdDate=" + createdDate + "]";
+	}
+	
+	
 	
 }
