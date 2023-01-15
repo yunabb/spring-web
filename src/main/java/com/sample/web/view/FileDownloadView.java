@@ -34,7 +34,7 @@ public class FileDownloadView extends AbstractView {
 		// 응답메시지의 헤더부에 다운로드되는 펌부파일을 이름으로 설정한다.
 		// attachment;는 브라우저에서 파일을 열지 않고, 항상 다운로드되게 한다.
 		// URLEncoder.encode(text, encoding) 은 텍스트를 지정된 인코딩 방식으로 변환시킨다.
-		// 텍스트에 하ㅣㄴ글이 포함되어 있는 경우 utf-8방식으로 인코딩(변환)하지 않으면 한글이 전부 깨진다.
+		// 텍스트에 한글이 포함되어 있는 경우 utf-8방식으로 인코딩(변환)하지 않으면 한글이 전부 깨진다.
 		response.setHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(file.getName(), "utf-8"));
 		
 		// 파일을 읽어오는 스트림 객체를 생성한다.
